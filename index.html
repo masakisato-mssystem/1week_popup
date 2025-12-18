@@ -79,9 +79,13 @@
                 
                 <!-- ■ ヘッダー画像エリア -->
                 <div class="relative w-full h-64 md:h-80 bg-gray-200 overflow-hidden">
-                    <!-- 画像変更: mai.png -> main.jpg -->
-                    <img src="main.jpg" alt="リビングでくつろぐ家族" class="w-full h-full object-cover brightness-75">
+                    <!-- 
+                        変更点: brightness-75 を削除しました。
+                        これにより、画像が本来の明るさで表示されます。
+                    -->
+                    <img src="main.jpg" alt="リビングでくつろぐ家族" class="w-full h-full object-cover">
                     
+                    <!-- 文字の視認性を確保するためのグラデーション（ここは維持） -->
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 text-white bg-gradient-to-t from-black/60 to-transparent">
                         <p class="text-sm md:text-base font-medium tracking-wider mb-2 text-brand-gold">エムズシステムの波動スピーカー</p>
                         <h2 class="text-2xl md:text-3xl font-bold leading-tight mb-4 drop-shadow-md">
