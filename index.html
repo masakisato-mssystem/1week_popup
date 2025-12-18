@@ -36,6 +36,11 @@
             transform: rotate(90deg);
             transition: transform 0.3s ease;
         }
+
+        /* 文字の可読性を高めるためのテキストシャドウ（明るい背景用） */
+        .text-shadow-strong {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
@@ -84,14 +89,15 @@
                     
                     <!-- 
                         グラデーションと文字の調整:
-                        1. bg-gradient-to-t を調整し、文字の背景を少し濃くして可読性を確保
-                        2. 一番上の文字に drop-shadow-lg を追加してくっきりさせる
+                        bg-black/20などの暗くするフィルタを削除。
+                        代わりに文字に text-shadow-strong を適用して可読性を確保。
+                        グラデーションは下部のみ控えめに適用。
                     -->
-                    <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 text-white bg-black/20 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                        <!-- ここを変更: drop-shadow-lg を追加 -->
-                        <p class="text-sm md:text-base font-medium tracking-wider mb-2 text-brand-gold drop-shadow-lg">エムズシステムの波動スピーカー</p>
+                    <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 text-white bg-gradient-to-t from-black/60 to-transparent">
+                        <!-- ここを変更: drop-shadow-xl と text-shadow-strong を追加して文字をくっきりさせる -->
+                        <p class="text-sm md:text-base font-bold tracking-wider mb-2 text-brand-gold text-shadow-strong">エムズシステムの波動スピーカー</p>
                         
-                        <h2 class="text-2xl md:text-3xl font-bold leading-tight mb-4 drop-shadow-md">
+                        <h2 class="text-2xl md:text-3xl font-bold leading-tight mb-4 text-shadow-strong">
                             音が変わると、<br>毎日が変わる。
                         </h2>
                         <div class="bg-white/90 text-brand-brown px-6 py-2 rounded-full font-bold text-sm md:text-base shadow-lg">
