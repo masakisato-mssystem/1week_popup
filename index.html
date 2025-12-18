@@ -88,7 +88,6 @@
                     <img src="main.jpg" alt="リビングでくつろぐ家族" class="w-full h-full object-cover">
                     
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 text-white bg-gradient-to-t from-black/60 to-transparent">
-                        <!-- 修正: text-brand-gold を text-amber-300 (明るい黄色) に変更し、文字サイズを少し大きくしました -->
                         <p class="text-base md:text-lg font-bold tracking-wider mb-2 text-amber-300 text-shadow-strong">エムズシステムの波動スピーカー</p>
                         
                         <h2 class="text-2xl md:text-3xl font-bold leading-tight mb-4 text-shadow-strong">
@@ -103,11 +102,11 @@
                 <!-- コンテンツラッパー -->
                 <div class="p-6 md:p-10 space-y-12">
 
-                    <!-- 2. Case 1. リビング（テレビの悩み解決） -->
+                    <!-- 2. Case 1. リビング（テレビの悩み解決 ＆ 癒やしの空間） -->
                     <section class="space-y-4">
                         <div class="border-l-4 border-brand-brown pl-4 mb-4">
                             <span class="text-sm text-gray-500 font-bold block">Case 1. リビング</span>
-                            <h3 class="text-xl font-bold text-gray-800">いつものテレビをもっと快適に</h3>
+                            <h3 class="text-xl font-bold text-gray-800">いつものリビングを、もっと快適に</h3>
                         </div>
 
                         <!-- 悩み訴求 -->
@@ -128,45 +127,49 @@
                                 <img src="ms1001.jpg" alt="MS1001とテレビ" class="w-full h-full object-cover">
                                 <div class="absolute bottom-0 left-0 bg-brand-brown text-white text-xs px-2 py-1">MS1001 + アンプセット</div>
                             </div>
-                            <p class="text-gray-700 leading-relaxed mb-3">
+                            <p class="text-gray-700 leading-relaxed mb-4">
                                 <strong class="text-brand-brown">波動スピーカーなら、たった1台で部屋中が豊かで自然な音に包まれます。</strong><br>
                                 ニュースの声はハッキリと、映画は迫力のある臨場感たっぷりの包みこまれるサウンドに。まるで、その場にいるようなリアリティをご自宅で。
                             </p>
-                            <div class="bg-amber-50 border border-amber-200 p-3 rounded text-sm text-amber-900 flex gap-2 items-start">
+                            
+                            <!-- 追加: 森林浴の癒やし訴求 -->
+                            <div class="p-4 bg-green-50 text-green-900 rounded-lg border border-green-200 text-center font-bold shadow-sm leading-relaxed">
+                                <i class="fa-solid fa-tree text-green-600 mr-2"></i>
+                                テレビを使わない時でも、お部屋がまるで『森林浴』をしているような癒やしの空間に生まれ変わります。
+                            </div>
+
+                            <div class="mt-4 bg-amber-50 border border-amber-200 p-3 rounded text-sm text-amber-900 flex gap-2 items-start">
                                 <i class="fa-solid fa-check mt-1 text-amber-600"></i>
                                 <span>必要なアンプ（DENON RCD-M41）もセットでお届けします。<br><span class="text-xs text-gray-500">※すでにアンプをお持ちの方はスピーカーのみのレンタルも可</span></span>
                             </div>
                         </div>
                     </section>
 
-                    <!-- 3. 【NEW】音の広がり比較図 -->
-                    <section class="space-y-4">
-                         <!-- 見出し等はなくし、画像で魅せる構成へ -->
+                    <!-- 3. 論理と根拠（比較図 ＆ エビデンス） -->
+                    <section class="space-y-6">
+                        <div class="border-l-4 border-brand-brown pl-4 mb-2">
+                            <span class="text-sm text-gray-500 font-bold block">Reason. 理由と根拠</span>
+                            <h3 class="text-xl font-bold text-gray-800">なぜ、音が変わるのか？</h3>
+                        </div>
+
+                        <!-- 図A: 音の広がり比較図 -->
                         <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                            
-                            <!-- 音の広がり比較画像 -->
-                            <!-- スタイル: 角丸(rounded-xl = 12px相当), 影(shadow-lg) -->
                             <div class="mb-1 relative rounded-xl overflow-hidden shadow-lg group">
                                 <img src="sound.jpg" alt="音の広がり比較図" class="w-full h-auto block" onerror="this.onerror=null; this.src='https://placehold.co/800x400?text=sound.jpg+Not+Found';">
                             </div>
-                            <!-- 注釈追加 -->
                             <p class="text-right text-[10px] text-gray-400 mb-3">（※イメージ図）</p>
 
-                            <!-- 画像下の補足キャプション (2カラム) -->
                             <div class="flex justify-between text-xs md:text-sm text-gray-600 mb-4 px-2">
                                 <div class="w-1/2 text-center pr-2 border-r border-gray-100">
-                                    <!-- 修正: エムズシステムに変更 -->
                                     <span class="block font-bold text-brand-brown mb-1">エムズシステム</span>
                                     空間全体を包み込む音
                                 </div>
                                 <div class="w-1/2 text-center pl-2">
-                                    <!-- 修正: テレビの音に変更 -->
                                     <span class="block font-bold text-gray-500 mb-1">テレビの音</span>
                                     前方にだけ飛ぶ音
                                 </div>
                             </div>
 
-                            <!-- 全体キャプション -->
                             <div class="bg-amber-50 p-3 rounded-lg text-center">
                                 <p class="text-sm md:text-base text-brand-brown font-medium leading-relaxed">
                                     キッチンでも、ダイニングでも。<br>
@@ -174,16 +177,13 @@
                                 </p>
                             </div>
                         </div>
-                    </section>
 
-                    <!-- 【復活】Evidence. 科学的根拠 -->
-                    <section class="space-y-4">
-                        <div class="border-l-4 border-brand-brown pl-4 mb-4">
-                            <span class="text-sm text-gray-500 font-bold block">Evidence. 科学的根拠</span>
-                            <h3 class="text-xl font-bold text-gray-800">日本レジリエンス医学研究所による<br class="md:hidden">実証データ ※1</h3>
-                        </div>
-                        
+                        <!-- 図B: 医学的エビデンス -->
                         <div class="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                            <div class="bg-gray-50 px-4 py-2 border-b border-gray-100">
+                                <h4 class="font-bold text-gray-700 text-sm"><i class="fa-solid fa-flask mr-2 text-brand-gold"></i>日本レジリエンス医学研究所による実証データ ※1</h4>
+                            </div>
+                            
                             <!-- effect.png 表示エリア (スクロール仕様) -->
                             <div class="w-full bg-gray-100 relative h-96 overflow-y-auto border-b border-gray-100 group">
                                 <img src="effect.png" alt="日本レジリエンス医学研究所による実証データ" class="w-full h-auto block" onerror="this.onerror=null; this.src='https://placehold.co/600x1200?text=Vertically+Long+Image';">
@@ -193,16 +193,26 @@
                                     <i class="fa-solid fa-arrows-up-down mr-1"></i>スクロールで詳細へ
                                 </div>
                             </div>
+                            <!-- キャプション修正 -->
                             <div class="p-4 bg-amber-50/50 border-t border-amber-100 relative z-10">
                                 <p class="text-sm md:text-base text-brand-brown font-medium text-center leading-relaxed">
-                                    統計的にも証明された「深い安らぎ」。<br>
-                                    部屋のどこにいても、あなたの心を整えます。
+                                    統計的にも証明された「脳に優しい音」。<br>
+                                    テレビ視聴でも、リラックスタイムでも、聴き疲れせず心を整えます。
                                 </p>
                             </div>
                         </div>
                     </section>
 
-                    <!-- 4. 安心の3つの約束 -->
+                    <!-- 4. ★追加メッセージ（情緒的価値の訴求） -->
+                    <div class="py-4 md:py-6 text-center bg-gradient-to-b from-white to-green-50/50 rounded-xl">
+                        <h3 class="text-lg md:text-xl font-bold text-brand-brown leading-relaxed">
+                            テレビの音が変わるだけでなく、<br>
+                            お部屋がまるで<span class="text-green-600 text-xl md:text-2xl mx-1">森林浴</span>をしているような<br>
+                            癒やしの空間に生まれ変わります。
+                        </h3>
+                    </div>
+
+                    <!-- 5. 安心の3つの約束 -->
                     <section class="bg-gray-100 rounded-xl p-6">
                         <h3 class="text-center font-bold text-gray-800 mb-6 text-lg">
                             <span class="border-b-2 border-brand-gold pb-1">安心の3つの約束</span>
@@ -216,7 +226,6 @@
                                 </div>
                                 <h4 class="font-bold text-gray-800 mb-1">接続はカンタン</h4>
                                 <p class="text-xs text-gray-600 leading-normal">
-                                    <!-- 修正: 10分に変更 -->
                                     ケーブルをつなぐだけ。機械が苦手な方でも10分で設置できます。<br>（説明書付き）
                                 </p>
                             </div>
@@ -243,7 +252,7 @@
                         </div>
                     </section>
 
-                    <!-- 5. お申し込みフォームエリア -->
+                    <!-- 6. お申し込みフォームエリア -->
                     <div class="pt-2">
                         <div class="text-center mb-4 animate-pulse">
                             <p class="font-bold text-brand-brown text-lg">
