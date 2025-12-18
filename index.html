@@ -82,20 +82,14 @@
             <!-- コンテンツ本体 -->
             <div class="flex-1">
                 
-                <!-- ■ ヘッダー画像エリア -->
+                <!-- 1. ヘッダー画像エリア -->
                 <div class="relative w-full h-64 md:h-80 bg-gray-200 overflow-hidden">
-                    <!-- 画像: 明るいまま維持 (brightnessクラスなし) -->
+                    <!-- 画像: 明るいまま維持 -->
                     <img src="main.jpg" alt="リビングでくつろぐ家族" class="w-full h-full object-cover">
                     
-                    <!-- 
-                        グラデーションと文字の調整:
-                        bg-black/20などの暗くするフィルタを削除。
-                        代わりに文字に text-shadow-strong を適用して可読性を確保。
-                        グラデーションは下部のみ控えめに適用。
-                    -->
                     <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 text-white bg-gradient-to-t from-black/60 to-transparent">
-                        <!-- ここを変更: drop-shadow-xl と text-shadow-strong を追加して文字をくっきりさせる -->
-                        <p class="text-sm md:text-base font-bold tracking-wider mb-2 text-brand-gold text-shadow-strong">エムズシステムの波動スピーカー</p>
+                        <!-- 修正: text-brand-gold を text-amber-300 (明るい黄色) に変更し、文字サイズを少し大きくしました -->
+                        <p class="text-base md:text-lg font-bold tracking-wider mb-2 text-amber-300 text-shadow-strong">エムズシステムの波動スピーカー</p>
                         
                         <h2 class="text-2xl md:text-3xl font-bold leading-tight mb-4 text-shadow-strong">
                             音が変わると、<br>毎日が変わる。
@@ -109,7 +103,7 @@
                 <!-- コンテンツラッパー -->
                 <div class="p-6 md:p-10 space-y-12">
 
-                    <!-- ■ コンテンツエリア 1：リビング・テレビ編 -->
+                    <!-- 2. Case 1. リビング（テレビの悩み解決） -->
                     <section class="space-y-4">
                         <div class="border-l-4 border-brand-brown pl-4 mb-4">
                             <span class="text-sm text-gray-500 font-bold block">Case 1. リビング</span>
@@ -131,44 +125,56 @@
                         <!-- 解決策 -->
                         <div class="mt-4">
                             <div class="w-full h-48 bg-gray-100 rounded-lg overflow-hidden mb-4 relative">
-                                <!-- 画像変更: ms1001_m41set.png -> ms1001.jpg -->
                                 <img src="ms1001.jpg" alt="MS1001とテレビ" class="w-full h-full object-cover">
                                 <div class="absolute bottom-0 left-0 bg-brand-brown text-white text-xs px-2 py-1">MS1001 + アンプセット</div>
                             </div>
                             <p class="text-gray-700 leading-relaxed mb-3">
-                                <strong class="text-brand-brown">波動スピーカーなら、たった1台で部屋中が音に包まれます。</strong><br>
+                                <strong class="text-brand-brown">波動スピーカーなら、たった1台で部屋中が豊かで自然な音に包まれます。</strong><br>
                                 ニュースの声はハッキリと、映画は迫力のある臨場感たっぷりの包みこまれるサウンドに。まるで、その場にいるようなリアリティをご自宅で。
                             </p>
                             <div class="bg-amber-50 border border-amber-200 p-3 rounded text-sm text-amber-900 flex gap-2 items-start">
                                 <i class="fa-solid fa-check mt-1 text-amber-600"></i>
-                                <span>必要なアンプ（M41）もセットでお届けします。<br><span class="text-xs text-gray-500">※すでにお持ちの方はスピーカーのみも可</span></span>
+                                <span>必要なアンプ（DENON RCD-M41）もセットでお届けします。<br><span class="text-xs text-gray-500">※すでにアンプをお持ちの方はスピーカーのみのレンタルも可</span></span>
                             </div>
                         </div>
                     </section>
 
-                    <!-- ■ コンテンツエリア 2：寝室・リラックス編 -->
+                    <!-- 3. 【NEW】音の広がり比較図 -->
                     <section class="space-y-4">
-                        <div class="border-l-4 border-brand-brown pl-4 mb-4">
-                            <span class="text-sm text-gray-500 font-bold block">Case 2. 寝室</span>
-                            <h3 class="text-xl font-bold text-gray-800">寝室を「極上の癒やし空間」へ</h3>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row gap-4 items-center">
-                            <div class="w-full md:w-1/2 h-48 bg-gray-100 rounded-lg overflow-hidden relative">
-                                <!-- 画像変更: SLA.png -> SLA.jpg -->
-                                <img src="SLA.jpg" alt="ベッドサイドのSLAショコラ" class="w-full h-full object-cover">
-                                <div class="absolute bottom-0 left-0 bg-brand-brown text-white text-xs px-2 py-1">SLA ショコラ</div>
+                         <!-- 見出し等はなくし、画像で魅せる構成へ -->
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                            
+                            <!-- 音の広がり比較画像 -->
+                            <!-- スタイル: 角丸(rounded-xl = 12px相当), 影(shadow-lg) -->
+                            <div class="mb-3 relative rounded-xl overflow-hidden shadow-lg group">
+                                <img src="sound.jpg" alt="音の広がり比較図" class="w-full h-auto block" onerror="this.onerror=null; this.src='https://placehold.co/800x400?text=sound.jpg+Not+Found';">
                             </div>
-                            <div class="w-full md:w-1/2">
-                                <p class="text-gray-700 leading-relaxed">
-                                    一日の終わり、心と体を解きほぐす<strong class="text-brand-brown">「音のエア・コンディショナー」</strong>。<br><br>
-                                    360度に広がる優しい音色が、あなたを深い眠りへといざないます。1週間、極上のリラックスタイムをご体験ください。
+
+                            <!-- 画像下の補足キャプション (2カラム) -->
+                            <div class="flex justify-between text-xs md:text-sm text-gray-600 mb-4 px-2">
+                                <div class="w-1/2 text-center pr-2 border-r border-gray-100">
+                                    <!-- 修正: エムズシステムに変更 -->
+                                    <span class="block font-bold text-brand-brown mb-1">エムズシステム</span>
+                                    空間全体を包み込む音
+                                </div>
+                                <div class="w-1/2 text-center pl-2">
+                                    <!-- 修正: テレビの音に変更 -->
+                                    <span class="block font-bold text-gray-500 mb-1">テレビの音</span>
+                                    前方にだけ飛ぶ音
+                                </div>
+                            </div>
+
+                            <!-- 全体キャプション -->
+                            <div class="bg-amber-50 p-3 rounded-lg text-center">
+                                <p class="text-sm md:text-base text-brand-brown font-medium leading-relaxed">
+                                    キッチンでも、ダイニングでも。<br>
+                                    距離や角度に関係なく、テレビの声がハッキリ届きます。
                                 </p>
                             </div>
                         </div>
                     </section>
 
-                    <!-- ■ 追加セクション：科学的根拠（信頼の証） -->
+                    <!-- 【復活】Evidence. 科学的根拠 -->
                     <section class="space-y-4">
                         <div class="border-l-4 border-brand-brown pl-4 mb-4">
                             <span class="text-sm text-gray-500 font-bold block">Evidence. 科学的根拠</span>
@@ -176,17 +182,11 @@
                         </div>
                         
                         <div class="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-sm">
-                            <!-- effect.png 表示エリア -->
-                            <!-- 
-                                変更点: 
-                                1. h-96 (384px) で高さを固定し、overflow-y-auto で縦スクロールを有効化
-                                2. 画像の object-contain を削除し、w-full で横幅いっぱいに強制拡大
-                            -->
+                            <!-- effect.png 表示エリア (スクロール仕様) -->
                             <div class="w-full bg-gray-100 relative h-96 overflow-y-auto border-b border-gray-100 group">
-                                <!-- 画像パスを effect.png に変更しました -->
                                 <img src="effect.png" alt="日本レジリエンス医学研究所による実証データ" class="w-full h-auto block" onerror="this.onerror=null; this.src='https://placehold.co/600x1200?text=Vertically+Long+Image';">
                                 
-                                <!-- スクロールヒント（ユーザーにスクロール可能であることを伝えるアイコン） -->
+                                <!-- スクロールヒント -->
                                 <div class="absolute bottom-4 right-4 bg-black/60 text-white text-xs px-3 py-1.5 rounded-full pointer-events-none backdrop-blur-sm shadow-lg opacity-80 group-hover:opacity-0 transition-opacity duration-300">
                                     <i class="fa-solid fa-arrows-up-down mr-1"></i>スクロールで詳細へ
                                 </div>
@@ -200,7 +200,7 @@
                         </div>
                     </section>
 
-                    <!-- ■ コンテンツエリア 3：安心の3つの約束 -->
+                    <!-- 4. 安心の3つの約束 -->
                     <section class="bg-gray-100 rounded-xl p-6">
                         <h3 class="text-center font-bold text-gray-800 mb-6 text-lg">
                             <span class="border-b-2 border-brand-gold pb-1">安心の3つの約束</span>
@@ -214,7 +214,8 @@
                                 </div>
                                 <h4 class="font-bold text-gray-800 mb-1">接続はカンタン</h4>
                                 <p class="text-xs text-gray-600 leading-normal">
-                                    ケーブルをつなぐだけ。機械が苦手な方でも5分で設置できます。<br>（説明書付き）
+                                    <!-- 修正: 10分に変更 -->
+                                    ケーブルをつなぐだけ。機械が苦手な方でも10分で設置できます。<br>（説明書付き）
                                 </p>
                             </div>
                             <!-- 約束2 -->
@@ -240,7 +241,7 @@
                         </div>
                     </section>
 
-                    <!-- ■ 【重要】お申し込みフォームエリア -->
+                    <!-- 5. お申し込みフォームエリア -->
                     <div class="pt-2">
                         <div class="text-center mb-4 animate-pulse">
                             <p class="font-bold text-brand-brown text-lg">
@@ -251,12 +252,6 @@
 
                         <!-- Zoho Survey 埋め込みエリア -->
                         <div class="w-full bg-white border-2 border-dashed border-gray-300 rounded-lg overflow-hidden relative" style="min-height: 500px;">
-                            
-                            <!-- 
-                              【実装時の注意】
-                              以下のiframeのsrc属性に、実際のZoho Surveyの公開URLを設定してください。
-                              styleのheightはフォームの長さに合わせて調整してください。
-                            -->
                             <iframe 
                                 src="about:blank" 
                                 class="w-full h-full absolute inset-0 z-10" 
@@ -266,19 +261,17 @@
                                 title="Zoho Survey Form">
                             </iframe>
 
-                            <!-- ダミー表示用（実際の実装時には削除またはz-index調整してください） -->
+                            <!-- ダミー表示用 -->
                             <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400 bg-gray-50 z-0 p-8 text-center">
                                 <i class="fa-solid fa-clipboard-list text-5xl mb-4"></i>
                                 <h3 class="text-xl font-bold mb-2">Zoho Survey Form Area</h3>
                                 <p class="text-sm">ここにZohoのフォームが表示されます。</p>
-                                <p class="text-xs mt-2">※背景色はサイトに合わせて白(#FFF)に設定してください。</p>
                                 <div class="mt-4 w-full max-w-xs space-y-2 opacity-50">
                                     <div class="h-8 bg-gray-200 rounded"></div>
                                     <div class="h-8 bg-gray-200 rounded"></div>
                                     <div class="h-10 bg-brand-gold rounded"></div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
