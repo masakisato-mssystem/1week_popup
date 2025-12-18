@@ -339,6 +339,23 @@
                 closeModal();
             }
         });
+
+        // Zoho Survey 送信完了時のスクロール自動調整
+        // iframeの読み込み完了（画面切り替え含む）を検知し、フォーム開始位置へ戻す
+        const iframe = document.querySelector('iframe[title="Zoho Survey Form"]');
+        const modalContent = document.querySelector('#campaignModal .overflow-y-auto');
+
+        if (iframe) {
+            iframe.onload = function() {
+                const formArea = iframe.parentElement;
+                if (modalContent && formArea) {
+                    modalContent.scrollTo({
+                        top: formArea.offsetTop - 50, 
+                        behavior: 'smooth'
+                    });
+                }
+            };
+        }
     </script>
 </body>
 </html>
