@@ -260,19 +260,33 @@
                             </p>
                             <p class="text-xs text-gray-500">（入力目安：1分）</p>
                         </div>
+                        
+                        <!-- Mac/Safari対策: フォームが真っ白になる場合の救済リンク -->
+                        <div class="text-center mb-6">
+                            <p class="text-xs text-gray-500 mb-1">
+                                ※iPhoneやMacなどでフォームが表示されない場合
+                            </p>
+                            <a href="https://survey.zohopublic.com/zs/q2CWsi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 px-5 py-3 rounded-full text-sm font-bold transition border border-gray-300">
+                                <i class="fa-solid fa-external-link-alt text-brand-brown"></i>
+                                申し込みフォームを別画面で開く
+                            </a>
+                        </div>
 
                         <!-- Zoho Survey 埋め込みエリア -->
-                        <div class="w-full bg-white border-2 border-dashed border-gray-300 rounded-lg overflow-hidden relative" style="min-height: 500px;">
+                        <!-- 修正: min-heightを1750pxに変更し、余裕を持たせる -->
+                        <div class="w-full bg-white border-2 border-dashed border-gray-300 rounded-lg overflow-hidden relative" style="min-height: 1750px;">
                             <iframe 
-                                src="about:blank" 
+                                src="https://survey.zohopublic.com/zs/q2CWsi" 
                                 class="w-full h-full absolute inset-0 z-10" 
                                 frameborder="0" 
                                 marginheight="0" 
                                 marginwidth="0"
+                                scrolling="no"
+                                allow="geolocation"
                                 title="Zoho Survey Form">
                             </iframe>
 
-                            <!-- ダミー表示用 -->
+                            <!-- ダミー表示用（読み込み待ち時などに背景として表示） -->
                             <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400 bg-gray-50 z-0 p-8 text-center">
                                 <i class="fa-solid fa-clipboard-list text-5xl mb-4"></i>
                                 <h3 class="text-xl font-bold mb-2">Zoho Survey Form Area</h3>
