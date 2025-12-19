@@ -70,7 +70,8 @@
         <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm" onclick="closeModal()"></div>
 
         <!-- モーダルコンテンツ -->
-        <div class="relative z-10 w-full h-full md:h-auto md:max-h-[90vh] md:max-w-2xl md:mx-auto bg-white md:rounded-lg shadow-xl overflow-y-auto flex flex-col">
+        <!-- 修正: ここでの pb設定を削除し、内部コンテンツで余白を管理する -->
+        <div class="relative z-10 w-full h-full md:h-auto md:max-h-[90vh] md:max-w-2xl md:mx-auto bg-white md:rounded-lg shadow-xl overflow-y-auto flex flex-col" style="background-color: white;">
             
             <!-- 閉じるボタン (固定) -->
             <button onclick="closeModal()" class="absolute top-4 right-4 z-20 bg-white/80 rounded-full p-2 text-gray-600 hover:text-black close-btn shadow-md">
@@ -133,9 +134,10 @@
                             </p>
                             
                             <!-- 追加: 森林浴の癒やし訴求 -->
+                            <!-- 修正: テキスト変更 -->
                             <div class="p-4 bg-green-50 text-green-900 rounded-lg border border-green-200 text-center font-bold shadow-sm leading-relaxed">
                                 <i class="fa-solid fa-tree text-green-600 mr-2"></i>
-                                テレビを使わない時でも、お部屋がまるで『森林浴』をしているような癒やしの空間に生まれ変わります。
+                                テレビを使わない時でも、CDやお手持ちのスマートホン(Bluetooth接続)の音楽でお部屋がまるで『森林浴』をしているような癒やしの空間に生まれ変わります。
                             </div>
 
                             <div class="mt-4 bg-amber-50 border border-amber-200 p-3 rounded text-sm text-amber-900 flex gap-2 items-start">
@@ -300,7 +302,8 @@
                 </div> <!-- End コンテンツラッパー -->
                 
                 <!-- フッター的な閉じボタン -->
-                <div class="p-4 bg-gray-50 text-center md:hidden">
+                <!-- 修正: pb-32 (128px) に大幅増量し、最下部を確実に白く埋める -->
+                <div class="p-4 pb-32 bg-white text-center md:hidden">
                     <button onclick="closeModal()" class="text-gray-500 text-sm underline">
                         閉じる
                     </button>
