@@ -65,22 +65,34 @@
       ここからがポップアップ（モーダル）本体です
       ======================================== 
     -->
-    <div id="campaignModal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div id="campaignModal" class="fixed inset-0 z-50 hidden flex items-center justify-center" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <!-- 背景の黒いオーバーレイ -->
         <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity backdrop-blur-sm" onclick="closeModal()"></div>
 
+        <!-- スマホ用 閉じるボタン（画面右上に完全固定） -->
+        <button onclick="closeModal()" class="fixed top-4 right-4 z-[60] bg-white/90 rounded-full p-3 text-gray-600 hover:text-black close-btn shadow-xl border border-gray-200 md:hidden">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
         <!-- モーダルコンテンツ -->
-        <div class="relative z-10 w-full h-full md:h-auto md:max-h-[90vh] md:max-w-2xl md:mx-auto bg-white md:rounded-lg shadow-xl overflow-y-auto flex flex-col" style="background-color: white;">
+        <!-- 修正: 親枠の overflow-y-auto を削除し、overflow-hidden に変更。これで枠自体は固定されます。 -->
+        <div class="relative z-10 w-full h-full md:h-auto md:max-h-[90vh] md:max-w-2xl md:mx-auto bg-white md:rounded-lg shadow-xl overflow-hidden flex flex-col" style="background-color: white;">
             
-            <!-- 閉じるボタン (修正: スマホではfixedで画面右上に固定、PCではabsoluteで枠内右上に配置) -->
-            <button onclick="closeModal()" class="fixed md:absolute top-4 right-4 z-50 bg-white/90 rounded-full p-2 text-gray-600 hover:text-black close-btn shadow-lg border border-gray-100">
+            <!-- 
+                PC用 閉じるボタン（追従型）
+                親枠がスクロールしなくなったため、absolute指定により「常に右上に表示」され続けます。
+            -->
+            <button onclick="closeModal()" class="hidden md:block absolute top-4 right-4 z-50 bg-white/90 rounded-full p-2 text-gray-600 hover:text-black close-btn shadow-md border border-gray-100">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
 
             <!-- コンテンツ本体 -->
-            <div class="flex-1">
+            <!-- 修正: 中身のdivに overflow-y-auto を移動。これにより、中身だけがスクロールします。 -->
+            <div id="modalScrollableContent" class="flex-1 overflow-y-auto">
                 
                 <!-- 1. ヘッダー画像エリア -->
                 <div class="relative w-full h-64 md:h-80 bg-gray-200 overflow-hidden">
@@ -275,11 +287,11 @@
                         </div>
 
                         <!-- Zoho Survey 埋め込みエリア -->
-                        <!-- 修正: iframe高さをレスポンシブ対応 (スマホ:2000px, PC:1750px) -->
-                        <div class="w-full bg-white rounded-lg overflow-hidden relative min-h-[2000px] md:min-h-[1750px]">
+                        <!-- 修正: iframe高さをレスポンシブ対応 (スマホ:2000px, PC:1700px) -->
+                        <div class="w-full bg-white rounded-lg overflow-hidden relative min-h-[2000px] md:min-h-[1700px]">
                             <iframe 
                                 src="https://survey.zohopublic.com/zs/q2CWsi" 
-                                class="w-full absolute inset-0 z-10 h-[2000px] md:h-[1750px] border-none"
+                                class="w-full absolute inset-0 z-10 h-[2000px] md:h-[1700px] border-none"
                                 frameborder="0" 
                                 marginheight="0" 
                                 marginwidth="0"
@@ -344,7 +356,8 @@
         // Zoho Survey 送信完了時のスクロール自動調整
         // iframeの読み込み完了（画面切り替え含む）を検知し、フォーム開始位置へ戻す
         const iframe = document.querySelector('iframe[title="Zoho Survey Form"]');
-        const modalContent = document.querySelector('#campaignModal .overflow-y-auto');
+        // 修正: スクロール対象が #modalScrollableContent に変更されたため、セレクタを修正
+        const modalContent = document.getElementById('modalScrollableContent');
 
         if (iframe) {
             iframe.onload = function() {
