@@ -6,8 +6,8 @@
     <title>エムズシステム 無料体験キャンペーン</title>
     <!-- Tailwind CSS (スタイリング用) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts (Noto Sans JP / Noto Serif JP) -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts (Noto Sans JP) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Font Awesome (アイコン用) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,11 +16,6 @@
             font-family: 'Noto Sans JP', sans-serif;
             background-color: #f3f4f6;
         }
-        /* 見出しなどに高級感を出すための明朝体クラス */
-        .font-serif-jp {
-            font-family: 'Noto Serif JP', serif;
-        }
-        
         /* ポップアップ表示時の背景固定用 */
         body.modal-open {
             overflow: hidden;
@@ -41,26 +36,33 @@
             transform: rotate(90deg);
             transition: transform 0.3s ease;
         }
+
+        /* 文字の可読性を高めるためのテキストシャドウ（明るい背景用） */
+        .text-shadow-strong {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
 
     <!-- 
       ========================================
-      デモ画面用トリガーボタン
+      これはデモ画面用のトリガーボタンです
+      実際のサイトでは、特定の条件やボタンクリックで
+      下のモーダルを表示させてください。
       ======================================== 
     -->
     <div class="text-center p-4">
         <h1 class="text-2xl font-bold mb-4 text-gray-700">サイト埋め込みイメージ確認</h1>
         <p class="mb-6 text-gray-600">以下のボタンを押してポップアップを表示してください</p>
         <button onclick="openModal()" class="bg-brand-brown text-white px-8 py-4 rounded-full shadow-lg hover:bg-opacity-90 transition font-bold text-lg animate-bounce">
-            10日間無料体験に申し込む
+            1週間無料お試しに申し込む
         </button>
     </div>
 
     <!-- 
       ========================================
-      ポップアップ（モーダル）本体
+      ここからがポップアップ（モーダル）本体です
       ======================================== 
     -->
     <div id="campaignModal" class="fixed inset-0 z-50 hidden flex items-center justify-center" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -77,60 +79,32 @@
         <!-- モーダルコンテンツ -->
         <div class="relative z-10 w-full h-full md:h-auto md:max-h-[90vh] md:max-w-2xl md:mx-auto bg-white md:rounded-lg shadow-xl overflow-hidden flex flex-col" style="background-color: white;">
             
-            <!-- PC用 閉じるボタン（追従型） -->
-            <button onclick="closeModal()" class="hidden md:block absolute top-4 right-4 z-50 bg-white/80 rounded-full p-2 text-gray-600 hover:text-black close-btn shadow-md border border-gray-100">
+            <!-- 
+                PC用 閉じるボタン（追従型）
+                親枠がスクロールしなくなったため、absolute指定により「常に右上に表示」され続けます。
+            -->
+            <button onclick="closeModal()" class="hidden md:block absolute top-4 right-4 z-50 bg-white/90 rounded-full p-2 text-gray-600 hover:text-black close-btn shadow-md border border-gray-100">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
 
-            <!-- コンテンツ本体 (スクロール領域) -->
+            <!-- コンテンツ本体 -->
             <div id="modalScrollableContent" class="flex-1 overflow-y-auto">
                 
-                <!-- 1. メインビジュアル（写真＋タイトル分離型） -->
-                <div>
-                    <!-- 画像エリア（文字を重ねず写真の美しさを強調） -->
-                    <div class="w-full h-64 md:h-80 bg-gray-200 overflow-hidden">
-                        <!-- 画像: 寝室のSLAショコラ (ファイル名は想定) -->
-                        <img src="SLA_main.jpg" alt="寝室でくつろぐSLAショコラ" class="w-full h-full object-cover">
-                    </div>
+                <!-- 1. ヘッダー画像エリア -->
+                <div class="relative w-full h-64 md:h-80 bg-gray-200 overflow-hidden">
+                    <!-- 画像: 明るいまま維持 -->
+                    <img src="main.jpg" alt="リビングでくつろぐ家族" class="w-full h-full object-cover">
                     
-                    <!-- タイトルエリア（白背景で上品に） -->
-                    <div class="bg-white px-6 py-8 text-center border-b border-gray-100">
-                        <p class="text-sm font-bold text-brand-gold tracking-widest mb-3">MS SYSTEM / SLA CHOCOLAT</p>
-                        <h2 class="text-2xl md:text-3xl font-serif-jp font-bold text-brand-brown leading-tight mb-4">
-                            いつものスマホが、<br>
-                            極上の癒やし空間に。
-                        </h2>
-                        <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-                            置くだけで、寝室がホテルスイートへ。<br class="md:hidden">面倒な配線は一切ありません。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 2. オファーの提示（アンカープライス） -->
-                <div class="bg-amber-50/50 p-6 md:p-8 text-center border-b border-dashed border-brand-gold/30">
-                    <div class="inline-block bg-white border-2 border-brand-gold rounded-xl shadow-sm px-6 py-4 max-w-lg w-full">
-                        <!-- 価格 -->
-                        <div class="mb-3">
-                            <p class="text-xs md:text-sm font-bold text-gray-400 line-through decoration-gray-400">通常価格 〇〇円(税込)</p>
-                            <div class="flex items-end justify-center gap-2 leading-none mt-1">
-                                <span class="text-sm text-brand-brown font-bold pb-1">→</span>
-                                <span class="text-red-600 font-bold text-lg">今回限り</span>
-                                <span class="text-red-600 font-black text-4xl md:text-5xl">0<span class="text-xl md:text-2xl">円</span></span>
-                            </div>
-                        </div>
+                    <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 text-white bg-gradient-to-t from-black/60 to-transparent">
+                        <p class="text-base md:text-lg font-bold tracking-wider mb-2 text-amber-300 text-shadow-strong">エムズシステムの波動スピーカー</p>
                         
-                        <!-- 期間と特典 -->
-                        <div class="space-y-2">
-                            <div class="bg-brand-brown text-white text-sm font-bold py-1 px-3 rounded-full inline-block">
-                                たっぷり10日間 無料体験
-                            </div>
-                            <p class="text-sm text-brand-brown font-bold leading-relaxed pt-2">
-                                <i class="fa-solid fa-gift text-red-500 mr-1"></i>
-                                お届けするのは<span class="text-red-600 text-lg mx-1 bg-red-100 px-1 rounded">【新品】</span>です。<br>
-                                気に入ったら返却不要で、そのまま購入OK！
-                            </p>
+                        <h2 class="text-2xl md:text-3xl font-bold leading-tight mb-4 text-shadow-strong">
+                            音が変わると、<br>毎日が変わる。
+                        </h2>
+                        <div class="bg-white/90 text-brand-brown px-6 py-2 rounded-full font-bold text-sm md:text-base shadow-lg">
+                            ご自宅で1週間、無料体験しませんか？
                         </div>
                     </div>
                 </div>
@@ -138,112 +112,205 @@
                 <!-- コンテンツラッパー -->
                 <div class="p-6 md:p-10 space-y-12">
 
-                    <!-- 3. 利用シーンの展開 -->
-                    <section>
-                        <div class="text-center mb-8">
-                            <h3 class="text-xl font-serif-jp font-bold text-brand-brown leading-relaxed">
-                                片手で持てるサイズだから、<br>
-                                あなたの行く場所すべてが特等席に。
-                            </h3>
+                    <!-- 2. Case 1. リビング（テレビの悩み解決 ＆ 癒やしの空間） -->
+                    <section class="space-y-4">
+                        <div class="border-l-4 border-brand-brown pl-4 mb-4">
+                            <span class="text-sm text-gray-500 font-bold block">Case 1. リビング</span>
+                            <h3 class="text-xl font-bold text-gray-800">いつものリビングを、もっと快適に</h3>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- シーン1: リビング -->
-                            <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-100">
-                                <div class="h-48 bg-gray-200">
-                                    <img src="scene_living.jpg" alt="リビングでタブレット" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Living+Scene';">
+                        <!-- 悩み訴求 -->
+                        <div class="bg-gray-50 p-4 rounded-lg text-gray-700 text-sm md:text-base space-y-2">
+                            <p class="flex items-start gap-2">
+                                <i class="fa-regular fa-face-frown text-gray-400 mt-1"></i>
+                                「最近のテレビ、声が聞き取りにくくないですか？」
+                            </p>
+                            <p class="flex items-start gap-2">
+                                <i class="fa-regular fa-face-frown text-gray-400 mt-1"></i>
+                                「映画やライブ映像、もっと臨場感たっぷりに楽しみたくないですか？」
+                            </p>
+                        </div>
+
+                        <!-- 解決策 -->
+                        <div class="mt-4">
+                            <div class="w-full h-48 bg-gray-100 rounded-lg overflow-hidden mb-4 relative">
+                                <img src="ms1001.jpg" alt="MS1001とテレビ" class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 bg-brand-brown text-white text-xs px-2 py-1">MS1001 + アンプセット</div>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                <strong class="text-brand-brown">波動スピーカーなら、たった1台で部屋中が豊かで自然な音に包まれます。</strong><br>
+                                ニュースの声はハッキリと、映画は迫力のある臨場感たっぷりの包みこまれるサウンドに。まるで、その場にいるようなリアリティをご自宅で。
+                            </p>
+                            
+                            <!-- 追加: 森林浴の癒やし訴求 -->
+                            <div class="p-4 bg-green-50 text-green-900 rounded-lg border border-green-200 text-left font-bold shadow-sm leading-relaxed">
+                                <i class="fa-solid fa-tree text-green-600 mr-2"></i>
+                                テレビを使わない時でも、CDやお手持ちのスマートホン(Bluetooth接続)の音楽でお部屋がまるで『森林浴』をしているような癒やしの空間に生まれ変わります。
+                            </div>
+
+                            <div class="mt-4 bg-amber-50 border border-amber-200 p-3 rounded text-sm text-amber-900 flex gap-2 items-start">
+                                <i class="fa-solid fa-check mt-1 text-amber-600"></i>
+                                <span>必要なアンプ（DENON RCD-M41）もセットでお届けします。<br><span class="text-xs text-gray-500">※すでにアンプをお持ちの方はスピーカーのみのレンタルも可</span></span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 3. 論理と根拠（比較図 ＆ エビデンス） -->
+                    <section class="space-y-6">
+                        <div class="border-l-4 border-brand-brown pl-4 mb-2">
+                            <span class="text-sm text-gray-500 font-bold block">Reason. 理由と根拠</span>
+                            <h3 class="text-xl font-bold text-gray-800">なぜ、音が変わるのか？</h3>
+                        </div>
+
+                        <!-- 図A: 音の広がり比較図 -->
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                            <div class="mb-1 relative rounded-xl overflow-hidden shadow-lg group">
+                                <img src="sound.jpg" alt="音の広がり比較図" class="w-full h-auto block" onerror="this.onerror=null; this.src='https://placehold.co/800x400?text=sound.jpg+Not+Found';">
+                            </div>
+                            <p class="text-right text-[10px] text-gray-400 mb-3">（※イメージ図）</p>
+
+                            <div class="flex justify-between text-xs md:text-sm text-gray-600 mb-4 px-2">
+                                <div class="w-1/2 text-center pr-2 border-r border-gray-100">
+                                    <span class="block font-bold text-brand-brown mb-1">エムズシステム</span>
+                                    空間全体を包み込む音
                                 </div>
-                                <div class="p-4">
-                                    <h4 class="font-bold text-brand-brown mb-2 flex items-center">
-                                        <i class="fa-solid fa-couch text-brand-gold mr-2"></i>リビングで
-                                    </h4>
-                                    <p class="text-sm text-gray-600 leading-relaxed">
-                                        タブレットの動画が、まるで映画館のような臨場感に。会話の邪魔をしない自然な響きです。
-                                    </p>
+                                <div class="w-1/2 text-center pl-2">
+                                    <span class="block font-bold text-gray-500 mb-1">テレビの音</span>
+                                    前方にだけ飛ぶ音
                                 </div>
                             </div>
 
-                            <!-- シーン2: デスク -->
-                            <div class="bg-gray-50 rounded-xl overflow-hidden border border-gray-100">
-                                <div class="h-48 bg-gray-200">
-                                    <img src="scene_desk.jpg" alt="デスクで仕事中" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Desk+Scene';">
-                                </div>
-                                <div class="p-4">
-                                    <h4 class="font-bold text-brand-brown mb-2 flex items-center">
-                                        <i class="fa-solid fa-mug-hot text-brand-gold mr-2"></i>デスクで
-                                    </h4>
-                                    <p class="text-sm text-gray-600 leading-relaxed">
-                                        仕事や読書のBGMに。音が空間に溶け込み、集中力を妨げずリラックスできます。
-                                    </p>
-                                </div>
+                            <div class="bg-amber-50 p-3 rounded-lg text-center">
+                                <p class="text-sm md:text-base text-brand-brown font-medium leading-relaxed">
+                                    キッチンでも、ダイニングでも。<br>
+                                    距離や角度に関係なく、テレビの声がハッキリ届きます。
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 図B: 医学的エビデンス -->
+                        <div class="bg-white rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                            <div class="bg-gray-50 px-4 py-2 border-b border-gray-100">
+                                <h4 class="font-bold text-gray-700 text-sm"><i class="fa-solid fa-flask mr-2 text-brand-gold"></i>日本レジリエンス医学研究所による実証データ ※1</h4>
+                            </div>
+                            
+                            <!-- effect.png 表示エリア (スクロールなし・全表示) -->
+                            <div class="w-full bg-gray-100 relative border-b border-gray-100">
+                                <img src="effect.png" alt="日本レジリエンス医学研究所による実証データ" class="w-full h-auto block" onerror="this.onerror=null; this.src='https://placehold.co/600x1200?text=Vertically+Long+Image';">
+                            </div>
+                            <!-- キャプション修正 -->
+                            <div class="p-4 bg-amber-50/50 border-t border-amber-100 relative z-10">
+                                <p class="text-sm md:text-base text-brand-brown font-medium text-center leading-relaxed">
+                                    統計的にも証明された「脳に優しい音」。<br>
+                                    テレビ視聴でも、リラックスタイムでも、聴き疲れせず心を整えます。
+                                </p>
                             </div>
                         </div>
                     </section>
 
-                    <!-- 4. 安心感の醸成（社会的証明） -->
-                    <section class="space-y-8">
-                        <div class="text-center">
-                            <span class="text-xs font-bold text-gray-400 tracking-widest uppercase">Trusted By</span>
-                            <h3 class="text-lg font-bold text-gray-800 mt-1">
-                                有名ホテルや著名人も愛用
-                            </h3>
-                        </div>
+                    <!-- 4. ★追加メッセージ（情緒的価値の訴求） -->
+                    <div class="py-4 md:py-6 text-center bg-gradient-to-b from-white to-green-50/50 rounded-xl">
+                        <h3 class="text-lg md:text-xl font-bold text-brand-brown leading-relaxed">
+                            テレビの音が変わるだけでなく、<br>
+                            お部屋がまるで<span class="text-green-600 text-xl md:text-2xl mx-1">森林浴</span>をしているような<br>
+                            癒やしの空間に生まれ変わります。
+                        </h3>
+                    </div>
 
-                        <!-- 導入実績リスト -->
-                        <div class="flex flex-wrap justify-center gap-3 text-sm font-medium text-gray-600">
-                            <div class="flex items-center bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-                                <i class="fa-solid fa-hotel text-brand-gold mr-2"></i>ザ・リッツ・カールトン東京
-                            </div>
-                            <div class="flex items-center bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-                                <i class="fa-solid fa-hotel text-brand-gold mr-2"></i>パレスホテル東京
-                            </div>
-                            <div class="flex items-center bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
-                                <i class="fa-solid fa-music text-brand-gold mr-2"></i>著名アーティスト多数
-                            </div>
-                        </div>
-
-                        <!-- 一般の方の声（写真） -->
-                        <div class="bg-gray-50 p-4 rounded-xl">
-                            <p class="text-sm font-bold text-gray-700 mb-3 text-center">実際のユーザー様のお部屋</p>
-                            <div class="grid grid-cols-3 gap-2 md:gap-4">
-                                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
-                                    <img src="user_voice1.jpg" alt="ユーザー事例1" class="w-full h-full object-cover hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/300x300?text=User1';">
+                    <!-- 5. 安心の3つの約束 -->
+                    <section class="bg-gray-100 rounded-xl p-6">
+                        <h3 class="text-center font-bold text-gray-800 mb-6 text-lg">
+                            <span class="border-b-2 border-brand-gold pb-1">安心の3つの約束</span>
+                        </h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- 約束1 -->
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow text-brand-brown text-xl">
+                                    <i class="fa-solid fa-plug"></i>
                                 </div>
-                                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
-                                    <img src="user_voice2.jpg" alt="ユーザー事例2" class="w-full h-full object-cover hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/300x300?text=User2';">
-                                </div>
-                                <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden">
-                                    <img src="user_voice3.jpg" alt="ユーザー事例3" class="w-full h-full object-cover hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/300x300?text=User3';">
-                                </div>
+                                <h4 class="font-bold text-gray-800 mb-1">接続はカンタン</h4>
+                                <p class="text-xs text-gray-600 leading-normal">
+                                    ケーブルをつなぐだけ。機械が苦手な方でも10分で設置できます。<br>（説明書付き）
+                                </p>
                             </div>
-                            <p class="text-[10px] text-center text-gray-400 mt-2">※個人の感想であり効果を保証するものではありません</p>
+                            <!-- 約束2 -->
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow text-brand-brown text-xl">
+                                    <i class="fa-solid fa-box-open"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800 mb-1">返却もラクラク</h4>
+                                <p class="text-xs text-gray-600 leading-normal">
+                                    届いた箱に戻して、同封の着払い伝票を貼るだけ。
+                                </p>
+                            </div>
+                            <!-- 約束3 -->
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow text-brand-brown text-xl">
+                                    <i class="fa-solid fa-yen-sign"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800 mb-1">費用は無料</h4>
+                                <p class="text-xs text-gray-600 leading-normal">
+                                    往復の送料も、レンタル料もいただきません。<br>気に入らなければ返却してOK。
+                                </p>
+                            </div>
                         </div>
                     </section>
 
-                    <!-- 5. 最終クロージング（限定性） -->
-                    <div class="pt-4">
-                        <div class="text-center mb-6">
-                            <div class="animate-pulse mb-3">
-                                <p class="font-bold text-brand-brown text-xl">
+                    <!-- 6. お申し込みフォームエリア -->
+                    <div class="pt-6">
+                        
+                        <!-- 【NEW】新品お届け＆そのまま購入訴求 -->
+                        <!-- 修正: mb-8 を mb-14 に変更して余白を拡大 -->
+                        <div class="mx-auto max-w-xl mb-14 bg-red-50 border-2 border-red-400 rounded-xl p-4 text-center shadow-md relative overflow-hidden group">
+                            <!-- キラリと光る演出（オプション） -->
+                            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]"></div>
+                            
+                            <p class="text-red-700 font-bold text-base md:text-lg mb-3">
+                                ＼ 面倒な入替不要！お届けするのは<span class="text-2xl md:text-3xl text-red-600 font-black bg-white px-2 py-0.5 rounded shadow-sm mx-1">「新品」</span>です ／
+                            </p>
+                            
+                            <div class="bg-white/80 rounded-lg p-3 inline-block w-full border border-red-100">
+                                <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 font-bold text-brand-brown">
+                                    <span class="flex items-center">
+                                        <i class="fa-solid fa-gift text-red-400 mr-1.5 text-xl"></i>
+                                        まずは体験
+                                    </span>
+                                    
+                                    <!-- PC用矢印 -->
+                                    <i class="fa-solid fa-arrow-right text-red-400 text-xl hidden md:block animate-pulse"></i>
+                                    <!-- スマホ用矢印 -->
+                                    <i class="fa-solid fa-arrow-down text-red-400 text-xl md:hidden animate-bounce"></i>
+                                    
+                                    <span class="flex items-center">
+                                        気に入ったら
+                                        <span class="text-red-600 border-b-2 border-red-500 mx-1">そのまま購入OK</span>
+                                        <i class="fa-solid fa-thumbs-up text-red-500 ml-1"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <p class="text-xs text-gray-600 mt-2 font-medium">
+                                ※もちろん、合わなければ返却してOK（返送も無料）
+                            </p>
+                        </div>
+
+                        <div class="text-center mb-4">
+                            <div class="animate-pulse mb-2">
+                                <p class="font-bold text-brand-brown text-lg">
                                     ↓ 今すぐ空き状況を確認して申し込む ↓
                                 </p>
                                 <p class="text-xs text-gray-500">（入力目安：1分）</p>
                             </div>
                             
-                            <!-- 限定性と安心感の注釈 -->
-                            <div class="inline-block text-left bg-red-50 border border-red-200 rounded-lg p-3 space-y-1">
-                                <p class="text-red-700 text-sm font-bold flex items-center">
-                                    <i class="fa-solid fa-circle-exclamation mr-2"></i>
-                                    今月の貸出枠：残りわずか（先着順）
-                                </p>
-                                <p class="text-red-700 text-sm font-bold flex items-center">
-                                    <i class="fa-regular fa-credit-card mr-2"></i>
-                                    クレジットカード登録は一切不要です
-                                </p>
-                            </div>
+                            <!-- 追加: 安心のためのマイクロコピー（シンプル化） -->
+                            <!-- 修正: 背景・枠線を削除し、赤文字・太字のみに変更 -->
+                            <p class="text-red-700 text-sm font-bold mt-4">
+                                ※クレジットカード登録は一切不要です。<br class="md:hidden">完全無料で安心してお試しいただけます。
+                            </p>
                         </div>
                         
-                        <!-- Mac/Safari対策 -->
+                        <!-- Mac/Safari対策: フォームが真っ白になる場合の救済リンク -->
                         <div class="text-center mb-6">
                             <p class="text-xs text-gray-500 mb-1">
                                 ※iPhoneやMacなどでフォームが表示されない場合
@@ -255,7 +322,7 @@
                         </div>
 
                         <!-- Zoho Survey 埋め込みエリア -->
-                        <!-- iframe高さ: スマホ2000px, PC1700px -->
+                        <!-- 修正: iframe高さをレスポンシブ対応 (スマホ:2000px, PC:1700px) -->
                         <div class="w-full bg-white rounded-lg overflow-hidden relative min-h-[2000px] md:min-h-[1700px]">
                             <iframe 
                                 src="https://survey.zohopublic.com/zs/q2CWsi" 
@@ -268,7 +335,7 @@
                                 title="Zoho Survey Form">
                             </iframe>
 
-                            <!-- ダミー表示 -->
+                            <!-- ダミー表示用（読み込み待ち時などに背景として表示） -->
                             <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400 bg-gray-50 z-0 p-8 text-center">
                                 <i class="fa-solid fa-clipboard-list text-5xl mb-4"></i>
                                 <h3 class="text-xl font-bold mb-2">Zoho Survey Form Area</h3>
@@ -324,7 +391,7 @@
         // Zoho Survey 送信完了時のスクロール自動調整
         // iframeの読み込み完了（画面切り替え含む）を検知し、フォーム開始位置へ戻す
         const iframe = document.querySelector('iframe[title="Zoho Survey Form"]');
-        // スクロール対象
+        // 修正: スクロール対象が #modalScrollableContent に変更されたため、セレクタを修正
         const modalContent = document.getElementById('modalScrollableContent');
 
         if (iframe) {
