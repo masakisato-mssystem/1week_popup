@@ -77,7 +77,6 @@
         </button>
 
         <!-- モーダルコンテンツ -->
-        <!-- 修正: 親枠の overflow-y-auto を削除し、overflow-hidden に変更。これで枠自体は固定されます。 -->
         <div class="relative z-10 w-full h-full md:h-auto md:max-h-[90vh] md:max-w-2xl md:mx-auto bg-white md:rounded-lg shadow-xl overflow-hidden flex flex-col" style="background-color: white;">
             
             <!-- 
@@ -91,7 +90,6 @@
             </button>
 
             <!-- コンテンツ本体 -->
-            <!-- 修正: 中身のdivに overflow-y-auto を移動。これにより、中身だけがスクロールします。 -->
             <div id="modalScrollableContent" class="flex-1 overflow-y-auto">
                 
                 <!-- 1. ヘッダー画像エリア -->
@@ -260,7 +258,43 @@
                     </section>
 
                     <!-- 6. お申し込みフォームエリア -->
-                    <div class="pt-2">
+                    <div class="pt-6">
+                        
+                        <!-- 【NEW】新品お届け＆そのまま購入訴求 -->
+                        <!-- 修正: mb-8 を mb-14 に変更して余白を拡大 -->
+                        <div class="mx-auto max-w-xl mb-14 bg-red-50 border-2 border-red-400 rounded-xl p-4 text-center shadow-md relative overflow-hidden group">
+                            <!-- キラリと光る演出（オプション） -->
+                            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]"></div>
+                            
+                            <p class="text-red-700 font-bold text-base md:text-lg mb-3">
+                                ＼ 面倒な入替不要！お届けするのは<span class="text-2xl md:text-3xl text-red-600 font-black bg-white px-2 py-0.5 rounded shadow-sm mx-1">「新品」</span>です ／
+                            </p>
+                            
+                            <div class="bg-white/80 rounded-lg p-3 inline-block w-full border border-red-100">
+                                <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 font-bold text-brand-brown">
+                                    <span class="flex items-center">
+                                        <i class="fa-solid fa-gift text-red-400 mr-1.5 text-xl"></i>
+                                        まずは体験
+                                    </span>
+                                    
+                                    <!-- PC用矢印 -->
+                                    <i class="fa-solid fa-arrow-right text-red-400 text-xl hidden md:block animate-pulse"></i>
+                                    <!-- スマホ用矢印 -->
+                                    <i class="fa-solid fa-arrow-down text-red-400 text-xl md:hidden animate-bounce"></i>
+                                    
+                                    <span class="flex items-center">
+                                        気に入ったら
+                                        <span class="text-red-600 border-b-2 border-red-500 mx-1">そのまま購入OK</span>
+                                        <i class="fa-solid fa-thumbs-up text-red-500 ml-1"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <p class="text-xs text-gray-600 mt-2 font-medium">
+                                ※もちろん、合わなければ返却してOK（返送も無料）
+                            </p>
+                        </div>
+
                         <div class="text-center mb-4">
                             <div class="animate-pulse mb-2">
                                 <p class="font-bold text-brand-brown text-lg">
@@ -269,8 +303,9 @@
                                 <p class="text-xs text-gray-500">（入力目安：1分）</p>
                             </div>
                             
-                            <!-- 追加: 安心のためのマイクロコピー（赤文字・枠線付き） -->
-                            <p class="text-red-600 text-sm font-bold mt-2 bg-red-50 inline-block px-3 py-1 rounded-full border border-red-100">
+                            <!-- 追加: 安心のためのマイクロコピー（シンプル化） -->
+                            <!-- 修正: 背景・枠線を削除し、赤文字・太字のみに変更 -->
+                            <p class="text-red-700 text-sm font-bold mt-4">
                                 ※クレジットカード登録は一切不要です。<br class="md:hidden">完全無料で安心してお試しいただけます。
                             </p>
                         </div>
